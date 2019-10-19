@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * To show handle a case when the Recyclerview is loaded but empty
+ * To handle a case when the Recyclerview is loaded but empty
  * code reference from <a href="https://gist.github.com/AlexZhukovich/537eaa1e3c82ef9f5d5cd22efdc80c54">here</a>
  *
  * set [toggleEmptyView] to define what to do based on isEmpty condition (adapter == null || adapter!!.itemCount == 0)
