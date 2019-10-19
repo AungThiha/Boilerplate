@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="android.widget.RelativeLayout">
+
+    <!--
+    when the screen rotate, screen layout is recreated
+    but if the state is retained. So, no need to fetch data again
+    hence, no need to show progress bar
+    ViewStub used here is to cover that case
+    -->
+    <ViewStub
+        android:id="@+id/stubProgressBar"
+        android:layout_width="@dimen/progressBarSize"
+        android:layout_height="@dimen/progressBarSize"
+        android:layout_centerInParent="true"
+        android:inflatedId="@+id/progressBar"
+        android:layout="@layout/progress_bar" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!--
+        if connection error never happens, this will never be shown
+        hence, ViewStub better performance
+        -->
+        <ViewStub
+            android:id="@+id/stubIvOverlay"
+            android:layout_width="@dimen/overlay_imageSize"
+            android:layout_height="@dimen/overlay_imageSize"
+            android:contentDescription="@string/overlay_image"
+            android:inflatedId="@+id/ivOverlay"
+            android:layout="@layout/overlay_image" />
+
+        <!--
+        if connection error never happens or no empty list, this will never be shown
+        hence, ViewStub better performance
+        -->
+        <ViewStub
+            android:id="@+id/stubTvOverlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inflatedId="@+id/tvOverlay"
+            android:layout="@layout/overlay_text" />
+
+        <!--
+        if error never happens, this will never be shown
+        hence, ViewStub better performance
+        -->
+        <ViewStub
+            android:id="@+id/stubBtnOverlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inflatedId="@+id/btnOverlay"
+            android:layout="@layout/overlay_button" />
+
+    </LinearLayout>
+
+
+</merge>

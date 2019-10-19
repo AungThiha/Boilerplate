@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Core</string>
+    <string name="overlay_image">Overlay Image</string>
 </resources>
