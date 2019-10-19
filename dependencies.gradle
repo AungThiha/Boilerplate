@@ -2,11 +2,25 @@ ext {
 
     androidx = [
             appcompat       : "androidx.appcompat:appcompat:$versions.appcompat",
-            coreKtx         : "androidx.core:core-ktx:$versions.ktx",
-            lifecycle       : "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
             constraintlayout: "androidx.constraintlayout:constraintlayout:$versions.constraintlayout",
             legacySupport   : "androidx.legacy:legacy-support-v4:$versions.legacySupport",
             recyclerview    : "androidx.recyclerview:recyclerview:$versions.recyclerview"
+    ]
+
+    ktx = [
+            core: "androidx.core:core-ktx:$versions.ktx",
+    ]
+
+    lifecycle = [
+            extensions: "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+    ]
+
+    room = [
+            runtime : "androidx.room:room-runtime:$versions.room",
+            compiler: "androidx.room:room-compiler:$versions.room",
+
+            ktx     : "androidx.room:room-ktx:$versions.room",
+            rx      : "androidx.room:room-rxjava2:$versions.room"
     ]
 
     network = [
@@ -37,7 +51,8 @@ ext {
             koin         : "org.koin:koin-test:$versions.koin",
             arch         : "androidx.arch.core:core-testing:$versions.archTest",
             mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin",
-            junit        : "junit:junit:$versions.junit"
+            junit        : "junit:junit:$versions.junit",
+            room         : "androidx.room:room-testing:$versions.room"
     ]
 
     androidTest = [

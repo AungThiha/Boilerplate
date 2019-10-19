@@ -19,6 +19,9 @@ ext.versions = [
         recyclerview    : '1.0.0',
         lifecycle       : '2.1.0',
 
+        // Database
+        room            : '2.2.0',
+
         // Retrofit
         retrofit        : '2.6.2',
         okhttp          : '4.2.2',

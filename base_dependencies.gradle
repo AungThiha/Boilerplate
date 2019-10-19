@@ -1,0 +1,54 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+
+    // androidx
+    implementation androidx.appcompat
+    implementation androidx.constraintlayout
+    implementation androidx.legacySupport
+    implementation androidx.recyclerview
+
+    // Room
+    implementation room.runtime
+    kapt room.compiler
+    implementation room.ktx
+    implementation room.rx
+
+    // lifecycle
+    implementation lifecycle.extensions
+
+    // ktx
+    implementation ktx.core
+
+    // retrofit
+    implementation network.retrofit.core
+    implementation network.retrofit.converterGson
+    implementation network.retrofit.adapterRx
+    implementation network.okhttp.core
+    implementation network.okhttp.interceptor
+
+    // Rx
+    implementation rx.android
+    implementation rx.kotlin
+
+    // Koin
+    implementation koin
+
+    // UI
+    implementation ui.material
+    implementation ui.glide
+
+    // test
+    testImplementation test.koin
+    testImplementation test.arch
+    testImplementation test.mockitoKotlin
+    testImplementation test.junit
+
+    // androidTest
+    androidTestImplementation androidTest.androidJunit
+    androidTestImplementation androidTest.espresso
+}
