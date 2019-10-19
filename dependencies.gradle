@@ -3,6 +3,7 @@ ext {
     androidx = [
             appcompat       : "androidx.appcompat:appcompat:$versions.appcompat",
             coreKtx         : "androidx.core:core-ktx:$versions.ktx",
+            lifecycle       : "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
             constraintlayout: "androidx.constraintlayout:constraintlayout:$versions.constraintlayout",
             legacySupport   : "androidx.legacy:legacy-support-v4:$versions.legacySupport",
             recyclerview    : "androidx.recyclerview:recyclerview:$versions.recyclerview"

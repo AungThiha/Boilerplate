@@ -29,6 +29,7 @@ dependencies {
 
     // androidx
     implementation androidx.appcompat
+    implementation androidx.lifecycle
     implementation androidx.coreKtx
     implementation androidx.constraintlayout
     implementation androidx.legacySupport
