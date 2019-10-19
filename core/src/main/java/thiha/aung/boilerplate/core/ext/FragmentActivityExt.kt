@@ -1,6 +1,6 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package thiha.aung.boilerplate.core.ext.android
+package thiha.aung.boilerplate.core.ext
 
 import androidx.fragment.app.FragmentActivity
 

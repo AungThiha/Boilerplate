@@ -1,4 +1,4 @@
-package thiha.aung.boilerplate.core.ext.rx
+package thiha.aung.boilerplate.core.ext
 
 import io.reactivex.Completable
 import io.reactivex.Single
