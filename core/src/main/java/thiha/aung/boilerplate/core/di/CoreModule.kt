@@ -9,6 +9,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import thiha.aung.boilerplate.core.data.remote.DataSourceProperties
 import thiha.aung.boilerplate.core.data.remote.OkHttpClientFactory
 import thiha.aung.boilerplate.core.data.remote.RetrofitClientFactory
+import thiha.aung.boilerplate.core.network.AppNetworkProvider
+import thiha.aung.boilerplate.core.network.NetworkProvider
+import thiha.aung.boilerplate.core.scheduler.AppSchedulerProvider
+import thiha.aung.boilerplate.core.scheduler.SchedulerProvider
 
 const val DI_GSON = "DI_GSON"
 const val DI_RX_ADAPTER = "DI_RX_ADAPTER"
@@ -44,5 +48,9 @@ val coreModule = module {
             callAdapterFactory = get(named(DI_RX_ADAPTER))
         )
     }
+
+    single<SchedulerProvider> { AppSchedulerProvider() }
+
+    single<NetworkProvider> { AppNetworkProvider(get()) }
 
 }

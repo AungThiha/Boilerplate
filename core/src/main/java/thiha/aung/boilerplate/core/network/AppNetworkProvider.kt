@@ -7,7 +7,7 @@ import android.os.Build
 import io.reactivex.Completable
 import thiha.aung.boilerplate.core.domain.entities.ErrorResponse
 
-class ApplicationNetworkProvider(
+class AppNetworkProvider(
     private val context: Context
 ) : NetworkProvider {
 
