@@ -19,7 +19,7 @@ const val DI_RX_ADAPTER = "DI_RX_ADAPTER"
 const val DI_PRIMARY_API_FACTORY = "DI_PRIMARY_API_FACTORY"
 const val DI_SECONDARY_API_FACTORY = "DI_SECONDARY_API_FACTORY"
 
-val coreModule = module {
+val networkModule = module {
 
     single { OkHttpClientFactory().build() }
 
@@ -49,8 +49,11 @@ val coreModule = module {
         )
     }
 
-    single<SchedulerProvider> { AppSchedulerProvider() }
-
     single<NetworkProvider> { AppNetworkProvider(get()) }
-
 }
+
+val schedulerModule = module {
+    single<SchedulerProvider> { AppSchedulerProvider() }
+}
+
+val coreModule = listOf(networkModule, schedulerModule)
