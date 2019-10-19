@@ -38,7 +38,7 @@ val coreModule = module {
 
     single(named(DI_SECONDARY_API_FACTORY)) {
         RetrofitClientFactory(
-            url = DataSourceProperties.PRIMARY_API,
+            url = DataSourceProperties.SECONDARY_API,
             okHttpClient = get(),
             converterFactory = get(named(DI_GSON)),
             callAdapterFactory = get(named(DI_RX_ADAPTER))
