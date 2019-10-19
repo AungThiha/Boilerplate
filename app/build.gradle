@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "thiha.aung.boilerplate"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    def ext = rootProject.ext
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+
+    // androidx
+    implementation ext.androidx.appcompat
+    implementation ext.androidx.coreKtx
+    implementation ext.androidx.constraintlayout
+    implementation ext.androidx.legacySupport
+    implementation ext.androidx.recyclerview
+
+    // retrofit
+    implementation ext.network.retrofit.core
+    implementation ext.network.retrofit.converterGson
+    implementation ext.network.retrofit.adapterRx
+    implementation ext.network.okhttp.core
+    implementation ext.network.okhttp.interceptor
+
+    // Rx
+    implementation ext.rx.android
+    implementation ext.rx.kotlin
+
+    // Koin
+    implementation ext.koin
+
+    // UI
+    implementation ext.ui.material
+    implementation ext.ui.glide
+
+    // test
+    testImplementation ext.test.koin
+    testImplementation ext.test.arch
+    testImplementation ext.test.mockitoKotlin
+    testImplementation ext.test.junit
+
+    // androidTest
+    androidTestImplementation ext.androidTest.androidJunit
+    androidTestImplementation ext.androidTest.espresso
+}

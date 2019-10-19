@@ -1,0 +1,47 @@
+ext {
+
+    androidx = [
+            appcompat       : "androidx.appcompat:appcompat:$versions.appcompat",
+            coreKtx         : "androidx.core:core-ktx:$versions.ktx",
+            constraintlayout: "androidx.constraintlayout:constraintlayout:$versions.constraintlayout",
+            legacySupport   : "androidx.legacy:legacy-support-v4:$versions.legacySupport",
+            recyclerview    : "androidx.recyclerview:recyclerview:$versions.recyclerview"
+    ]
+
+    network = [
+            retrofit: [
+                    core         : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                    converterGson: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                    adapterRx    : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+            ],
+            okhttp  : [
+                    core       : "com.squareup.okhttp3:okhttp:$versions.okhttp",
+                    interceptor: "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+            ]
+    ]
+
+    rx = [
+            android: "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+            kotlin : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin"
+    ]
+
+    koin = "org.koin:koin-android:$versions.koin"
+
+    ui = [
+            material: "com.google.android.material:material:$versions.material",
+            glide   : "com.github.bumptech.glide:glide:$versions.glide"
+    ]
+
+    test = [
+            koin         : "org.koin:koin-test:$versions.koin",
+            arch         : "androidx.arch.core:core-testing:$versions.archTest",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin",
+            junit        : "junit:junit:$versions.junit"
+    ]
+
+    androidTest = [
+            // runner: "androidx.test:runner:$androidTestRunnerVersion",
+            androidJunit: "androidx.test.ext:junit:$versions.androidJunit",
+            espresso    : "androidx.test.espresso:espresso-core:$versions.espresso"
+    ]
+}
