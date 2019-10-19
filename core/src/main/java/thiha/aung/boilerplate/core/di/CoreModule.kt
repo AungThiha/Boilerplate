@@ -10,13 +10,12 @@ import thiha.aung.boilerplate.core.data.remote.DataSourceProperties
 import thiha.aung.boilerplate.core.data.remote.OkHttpClientFactory
 import thiha.aung.boilerplate.core.data.remote.RetrofitClientFactory
 
-const val DI_BASE_URL = "DI_BASE_URL"
 const val DI_GSON = "DI_GSON"
 const val DI_RX_ADAPTER = "DI_RX_ADAPTER"
+const val DI_PRIMARY_API_FACTORY = "DI_PRIMARY_API_FACTORY"
+const val DI_SECONDARY_API_FACTORY = "DI_SECONDARY_API_FACTORY"
 
 val coreModule = module {
-
-    single(named(DI_BASE_URL)) { DataSourceProperties.BASE_URL }
 
     single { OkHttpClientFactory().build() }
 
@@ -28,9 +27,18 @@ val coreModule = module {
         RxJava2CallAdapterFactory.create()
     }
 
-    single {
+    single(named(DI_PRIMARY_API_FACTORY)) {
         RetrofitClientFactory(
-            url = get(named(DI_BASE_URL)),
+            url = DataSourceProperties.PRIMARY_API,
+            okHttpClient = get(),
+            converterFactory = get(named(DI_GSON)),
+            callAdapterFactory = get(named(DI_RX_ADAPTER))
+        )
+    }
+
+    single(named(DI_SECONDARY_API_FACTORY)) {
+        RetrofitClientFactory(
+            url = DataSourceProperties.PRIMARY_API,
             okHttpClient = get(),
             converterFactory = get(named(DI_GSON)),
             callAdapterFactory = get(named(DI_RX_ADAPTER))
