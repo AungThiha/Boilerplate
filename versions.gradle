@@ -1,4 +1,10 @@
 ext.versions = [
+        // android
+        compileSdk: 29,
+        buildTools: "29.0.0",
+        minSdk: 21,
+        targetSdk: 29,
+
         // gradle
         buildGradle     : '3.5.1',
 
