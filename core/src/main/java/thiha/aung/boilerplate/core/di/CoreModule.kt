@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import org.koin.dsl.module
 import retrofit2.CallAdapter
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import thiha.aung.boilerplate.core.config.RemoteDataProperties
+import thiha.aung.boilerplate.core.data.remote.RemoteDataProperties
 import thiha.aung.boilerplate.core.data.remote.OkHttpClientFactory
 import thiha.aung.boilerplate.core.data.remote.RetrofitClientFactory
 import thiha.aung.boilerplate.core.network.AppNetworkProvider

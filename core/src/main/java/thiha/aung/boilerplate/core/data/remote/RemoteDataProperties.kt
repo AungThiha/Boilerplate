@@ -1,4 +1,4 @@
-package thiha.aung.boilerplate.core.config
+package thiha.aung.boilerplate.core.data.remote
 
 object RemoteDataProperties {
 

@@ -14,6 +14,8 @@ val dbModule = module {
         ).fallbackToDestructiveMigration().build()
     }
 
-    // single { get<AppDatabase>().example1Dao() }
+    single {
+        get<AppDatabase>().photoDao()
+    }
 
 }
