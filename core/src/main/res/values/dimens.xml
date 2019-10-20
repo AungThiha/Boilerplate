@@ -6,4 +6,5 @@
     <dimen name="overlay_imageSize">80dp</dimen>
     <dimen name="button_radiusSize">100dp</dimen>
     <dimen name="button_horizontal_padding">24dp</dimen>
+    <dimen name="match_constraint">0dp</dimen>
 </resources>
