@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import org.koin.dsl.module
 import retrofit2.CallAdapter
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import thiha.aung.boilerplate.core.data.remote.DataSourceProperties
+import thiha.aung.boilerplate.core.config.DataSourceProperties
 import thiha.aung.boilerplate.core.data.remote.OkHttpClientFactory
 import thiha.aung.boilerplate.core.data.remote.RetrofitClientFactory
 import thiha.aung.boilerplate.core.network.AppNetworkProvider
@@ -16,7 +16,7 @@ import thiha.aung.boilerplate.core.scheduler.SchedulerProvider
 
 const val DI_GSON = "DI_GSON"
 const val DI_RX_ADAPTER = "DI_RX_ADAPTER"
-const val DI_PRIMARY_API_FACTORY = "DI_PRIMARY_API_FACTORY"
+const val DI_PICSUM_API_FACTORY = "DI_PICSUM_API_FACTORY"
 const val DI_SECONDARY_API_FACTORY = "DI_SECONDARY_API_FACTORY"
 
 val networkModule = module {
@@ -31,9 +31,9 @@ val networkModule = module {
         RxJava2CallAdapterFactory.create()
     }
 
-    single(named(DI_PRIMARY_API_FACTORY)) {
+    single(named(DI_PICSUM_API_FACTORY)) {
         RetrofitClientFactory(
-            url = DataSourceProperties.PRIMARY_API,
+            url = DataSourceProperties.PICSUM_API,
             okHttpClient = get(),
             converterFactory = get(named(DI_GSON)),
             callAdapterFactory = get(named(DI_RX_ADAPTER))
