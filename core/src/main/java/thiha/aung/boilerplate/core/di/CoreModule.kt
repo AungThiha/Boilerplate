@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import org.koin.dsl.module
 import retrofit2.CallAdapter
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import thiha.aung.boilerplate.core.config.DataSourceProperties
+import thiha.aung.boilerplate.core.config.RemoteDataProperties
 import thiha.aung.boilerplate.core.data.remote.OkHttpClientFactory
 import thiha.aung.boilerplate.core.data.remote.RetrofitClientFactory
 import thiha.aung.boilerplate.core.network.AppNetworkProvider
@@ -33,7 +33,7 @@ val networkModule = module {
 
     single(named(DI_PICSUM_API_FACTORY)) {
         RetrofitClientFactory(
-            url = DataSourceProperties.PICSUM_API,
+            url = RemoteDataProperties.PICSUM_API,
             okHttpClient = get(),
             converterFactory = get(named(DI_GSON)),
             callAdapterFactory = get(named(DI_RX_ADAPTER))
@@ -42,7 +42,7 @@ val networkModule = module {
 
     single(named(DI_SECONDARY_API_FACTORY)) {
         RetrofitClientFactory(
-            url = DataSourceProperties.SECONDARY_API,
+            url = RemoteDataProperties.SECONDARY_API,
             okHttpClient = get(),
             converterFactory = get(named(DI_GSON)),
             callAdapterFactory = get(named(DI_RX_ADAPTER))

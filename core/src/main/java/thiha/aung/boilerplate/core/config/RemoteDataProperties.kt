@@ -1,6 +1,6 @@
 package thiha.aung.boilerplate.core.config
 
-object DataSourceProperties {
+object RemoteDataProperties {
 
     const val PICSUM_API = "https://picsum.photos/"
 
