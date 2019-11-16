@@ -26,5 +26,5 @@ android {
 
 dependencies {
     implementation project(path: ':core')
-    implementation project(path: ':photos')
+    implementation project(path: ':photo')
 }
