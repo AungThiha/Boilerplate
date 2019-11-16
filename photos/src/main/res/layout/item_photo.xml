@@ -8,18 +8,18 @@
     <FrameLayout
         android:layout_width="@dimen/match_constraint"
         android:layout_height="@dimen/match_constraint"
+        app:layout_constraintDimensionRatio="3:1"
         android:foreground="@drawable/bg_photo_gredient"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="3:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/placeholder"
+            android:contentDescription="@string/photoContentDescription"
             android:scaleType="centerCrop"/>
     </FrameLayout>
 
@@ -30,7 +30,6 @@
         android:padding="@dimen/text_vertical_margin"
         android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:contentDescription="@string/photoContentDescription"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Natural View" />
