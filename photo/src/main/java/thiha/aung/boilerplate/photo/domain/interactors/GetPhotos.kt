@@ -24,7 +24,7 @@ class GetPhotosImpl(
                 .mergeWith(
                     networkProvider.isInternetOn()
                         .andThen(getRemotePhotos())
-                        .subscribeOn(schedulerProvider.new())
+                        .subscribeOn(schedulerProvider.io())
                         .doOnSuccess(::savePhotos)
                 )
                 .with(schedulerProvider)
