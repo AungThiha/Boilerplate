@@ -8,6 +8,6 @@ import thiha.aung.boilerplate.photo.domain.entities.Photo
 interface PhotoApiService {
 
     @GET(RemoteDataProperties.PICSUM_VERSION_2_LIST)
-    fun getPhotos(): Single<List<Photo>>
+    fun getPhotos(): Single<List<RemotePhoto>>
 
 }
