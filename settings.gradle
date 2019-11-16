@@ -1,2 +1,2 @@
-include ':app', ':core', ':photos'
+include ':app', ':core', ':photo'
 rootProject.name='Boilerplate'
