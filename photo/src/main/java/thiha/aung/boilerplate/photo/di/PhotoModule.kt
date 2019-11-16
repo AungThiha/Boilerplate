@@ -30,9 +30,9 @@ val dataModule = module {
 
 val domainModule = module {
 
-    factory<GetPhotos> { GetPhotosImpl(get(), get()) }
+    factory<GetPhotos> { GetPhotosImpl(get(), get(), get()) }
 
-    factory<RefreshPhotos> { RefreshPhotosImpl(get(), get()) }
+    factory<RefreshPhotos> { RefreshPhotosImpl(get(), get(), get()) }
 
 }
 

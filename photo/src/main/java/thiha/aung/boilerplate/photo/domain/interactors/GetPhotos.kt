@@ -2,6 +2,7 @@ package thiha.aung.boilerplate.photo.domain.interactors
 
 import io.reactivex.Flowable
 import thiha.aung.boilerplate.core.ext.with
+import thiha.aung.boilerplate.core.network.NetworkProvider
 import thiha.aung.boilerplate.core.scheduler.SchedulerProvider
 import thiha.aung.boilerplate.photo.data.PhotoRepository
 import thiha.aung.boilerplate.photo.domain.entities.Photo
@@ -11,6 +12,7 @@ interface GetPhotos {
 }
 
 class GetPhotosImpl(
+    private val networkProvider: NetworkProvider,
     private val schedulerProvider: SchedulerProvider,
     private val photoRepository: PhotoRepository
 ) : GetPhotos {
@@ -20,7 +22,8 @@ class GetPhotosImpl(
             getLocalPhotos()
                 .filter { it.isNotEmpty() }
                 .mergeWith(
-                    getRemotePhotos()
+                    networkProvider.isInternetOn()
+                        .andThen(getRemotePhotos())
                         .subscribeOn(schedulerProvider.new())
                         .doOnSuccess(::savePhotos)
                 )

@@ -2,6 +2,7 @@ package thiha.aung.boilerplate.photo.domain.interactors
 
 import io.reactivex.Completable
 import thiha.aung.boilerplate.core.ext.with
+import thiha.aung.boilerplate.core.network.NetworkProvider
 import thiha.aung.boilerplate.core.scheduler.SchedulerProvider
 import thiha.aung.boilerplate.photo.data.PhotoRepository
 
@@ -10,13 +11,15 @@ interface RefreshPhotos {
 }
 
 class RefreshPhotosImpl(
+    private val networkProvider: NetworkProvider,
     private val schedulerProvider: SchedulerProvider,
     private val photoRepository: PhotoRepository
 )  : RefreshPhotos {
 
     override fun invoke(): Completable {
         return photoRepository.run {
-            getRemotePhotos()
+            networkProvider.isInternetOn()
+                .andThen(getRemotePhotos())
                 .with(schedulerProvider)
                 .doOnSuccess(::savePhotos)
                 .ignoreElement()
