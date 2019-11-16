@@ -40,7 +40,10 @@ ext {
             kotlin : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin"
     ]
 
-    koin = "org.koin:koin-android:$versions.koin"
+    koin = [
+            android  : "org.koin:koin-android:$versions.koin",
+            viewModel: "org.koin:koin-android-viewmodel:$versions.koin"
+    ]
 
     ui = [
             material: "com.google.android.material:material:$versions.material",

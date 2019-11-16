@@ -36,7 +36,8 @@ dependencies {
     implementation rx.kotlin
 
     // Koin
-    implementation koin
+    implementation koin.android
+    implementation koin.viewModel
 
     // UI
     implementation ui.material

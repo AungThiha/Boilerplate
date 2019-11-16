@@ -12,16 +12,16 @@ import thiha.aung.boilerplate.photo.domain.entities.Photo
 abstract class PhotoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun save(photos: List<Photo>)
+    abstract fun save(photos: List<LocalPhoto>)
 
     @Query("$SELECT $ALL $FROM $TABLE_PHOTO")
-    abstract fun getPhotos(id: String): Flowable<Photo>
+    abstract fun getPhotos(): Flowable<List<LocalPhoto>>
 
     @Query("$DELETE $FROM $TABLE_PHOTO")
     abstract fun clear()
 
     @Transaction
-    fun clearAndSave(photos: List<Photo>) {
+    fun clearAndSave(photos: List<LocalPhoto>) {
         clear()
         save(photos)
     }
