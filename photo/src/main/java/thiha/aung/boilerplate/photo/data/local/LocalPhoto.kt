@@ -1,4 +1,4 @@
-package thiha.aung.boilerplate.photos.data.local
+package thiha.aung.boilerplate.photo.data.local
 
 import androidx.room.Entity
 

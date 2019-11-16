@@ -1,9 +1,9 @@
-package thiha.aung.boilerplate.photos.data.local
+package thiha.aung.boilerplate.photo.data.local
 
 import org.junit.Test
 
 import org.junit.Assert.*
-import thiha.aung.boilerplate.photos.domain.entities.Photo
+import thiha.aung.boilerplate.photo.domain.entities.Photo
 
 class LocalPhotoMapperTest {
 

@@ -1,8 +1,8 @@
-package thiha.aung.boilerplate.photos.presentation
+package thiha.aung.boilerplate.photo.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import thiha.aung.boilerplate.photos.R
+import thiha.aung.boilerplate.photo.R
 
 class PhotosActivity : AppCompatActivity() {
 

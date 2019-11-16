@@ -1,4 +1,4 @@
-package thiha.aung.boilerplate.photos.domain.entities
+package thiha.aung.boilerplate.photo.domain.entities
 
 data class Photo(
     val id: String,

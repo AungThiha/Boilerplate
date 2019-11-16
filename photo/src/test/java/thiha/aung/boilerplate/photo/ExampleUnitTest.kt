@@ -1,4 +1,4 @@
-package thiha.aung.boilerplate.photos
+package thiha.aung.boilerplate.photo
 
 import org.junit.Test
 

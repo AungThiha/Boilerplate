@@ -1,4 +1,4 @@
-package thiha.aung.boilerplate.photos.data.local
+package thiha.aung.boilerplate.photo.data.local
 
 import androidx.room.*
 import io.reactivex.Flowable
@@ -6,7 +6,7 @@ import thiha.aung.boilerplate.core.data.local.ALL
 import thiha.aung.boilerplate.core.data.local.FROM
 import thiha.aung.boilerplate.core.data.local.SELECT
 import thiha.aung.boilerplate.core.data.local.DELETE
-import thiha.aung.boilerplate.photos.domain.entities.Photo
+import thiha.aung.boilerplate.photo.domain.entities.Photo
 
 @Dao
 abstract class PhotoDao {

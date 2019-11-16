@@ -1,4 +1,4 @@
-package thiha.aung.boilerplate.photos.data.remote
+package thiha.aung.boilerplate.photo.data.remote
 
 import com.google.gson.annotations.SerializedName
 
