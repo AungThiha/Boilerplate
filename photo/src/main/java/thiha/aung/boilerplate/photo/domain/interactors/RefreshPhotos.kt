@@ -21,8 +21,8 @@ class RefreshPhotosImpl(
             networkProvider.isInternetOn()
                 .andThen(getRemotePhotos())
                 .doOnSuccess(::savePhotos)
-                .with(schedulerProvider)
                 .ignoreElement()
+                .with(schedulerProvider)
         }
     }
 
