@@ -23,6 +23,7 @@ class RefreshPhotosImpl(
                 .doOnSuccess(::savePhotos)
                 .ignoreElement()
                 .with(schedulerProvider)
+                .with(schedulerProvider)
         }
     }
 
