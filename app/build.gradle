@@ -97,10 +97,8 @@ android {
         targetCompatibility = 1.8
     }
 
-    android {
-        dexOptions {
-            preDexLibraries = true
-        }
+    dexOptions {
+        preDexLibraries = true
     }
 
 }
