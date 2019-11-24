@@ -25,7 +25,6 @@ prod.keystore.path=../keystores/prod.keystore
 prod.keystore.password=YourProdPassword
 prod.key.alias=YourProdAlias
 prod.key.password=YourProdKeyPassword
-
 ```
 
 ## Base Urls
