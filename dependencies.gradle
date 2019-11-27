@@ -7,6 +7,11 @@ ext {
             recyclerview    : "androidx.recyclerview:recyclerview:$versions.recyclerview"
     ]
 
+    firebase = [
+            analytics: "com.google.firebase:firebase-analytics:$versions.firebaseAnalytics",
+            crashlytics: "com.crashlytics.sdk.android:crashlytics:$versions.crashlytics"
+    ]
+
     ktx = [
             core: "androidx.core:core-ktx:$versions.ktx",
     ]

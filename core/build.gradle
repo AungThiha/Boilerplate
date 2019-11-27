@@ -1,1 +1,6 @@
 apply from: '../base_library.gradle'
+
+dependencies {
+    implementation firebase.analytics
+    implementation firebase.crashlytics
+}
