@@ -1,8 +1,8 @@
-package thiha.aung.boilerplate.photos.data.remote
+package thiha.aung.boilerplate.photo.data.remote
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import thiha.aung.boilerplate.photos.domain.entities.Photo
+import thiha.aung.boilerplate.photo.domain.entities.Photo
 
 class RemotePhotoMapperTest {
 
