@@ -16,10 +16,34 @@ android {
     }
 
     buildTypes {
-        release {
+
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'env'
+
+    productFlavors {
+        dev {
+            dimension 'env'
+        }
+        staging {
+            dimension 'env'
+        }
+        prod {
+            dimension 'env'
+        }
+    }
+
+    dexOptions {
+        preDexLibraries = true
     }
 
 }

@@ -15,11 +15,90 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+
+        def keystorePropsFile = rootProject.file('keystore.properties')
+
+        if (keystorePropsFile.exists()) {
+
+            def keystoreProps = new Properties()
+            keystoreProps.load(new FileInputStream(keystorePropsFile))
+
+            dev {
+                storeFile file(keystoreProps.getProperty('dev.keystore.path'))
+                storePassword keystoreProps.getProperty('dev.keystore.password')
+                keyAlias keystoreProps.getProperty('dev.key.alias')
+                keyPassword keystoreProps.getProperty('dev.key.password')
+            }
+
+            staging {
+                storeFile file(keystoreProps.getProperty('staging.keystore.path'))
+                storePassword keystoreProps.getProperty('staging.keystore.password')
+                keyAlias keystoreProps.getProperty('staging.key.alias')
+                keyPassword keystoreProps.getProperty('staging.key.password')
+            }
+
+            prod {
+                storeFile file(keystoreProps.getProperty('prod.keystore.path'))
+                storePassword keystoreProps.getProperty('prod.keystore.password')
+                keyAlias keystoreProps.getProperty('prod.key.alias')
+                keyPassword keystoreProps.getProperty('prod.key.password')
+            }
+
+        } else {
+            dev {}
+            staging {}
+            prod {}
+        }
+
+    }
+
     buildTypes {
+
+        debug {
+            debuggable true
+            versionNameSuffix '-DEBUG'
+            minifyEnabled false
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+    }
+
+    flavorDimensions 'env'
+
+    productFlavors {
+
+        dev {
+            dimension 'env'
+            signingConfig signingConfigs.dev
+            applicationId "thiha.aung.boilerplate.dev"
+        }
+
+        staging {
+            dimension 'env'
+            signingConfig signingConfigs.staging
+            applicationId "thiha.aung.boilerplate.staging"
+        }
+
+        prod {
+            dimension 'env'
+            signingConfig signingConfigs.prod
+            applicationId "thiha.aung.boilerplate"
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    dexOptions {
+        preDexLibraries = true
     }
 
 }
