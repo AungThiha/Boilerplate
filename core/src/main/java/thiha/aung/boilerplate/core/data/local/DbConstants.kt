@@ -4,5 +4,3 @@ const val SELECT = "SELECT"
 const val DELETE = "DELETE"
 
 const val FROM = "FROM"
-
-const val ALL = "*"

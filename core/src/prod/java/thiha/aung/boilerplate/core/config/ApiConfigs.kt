@@ -1,6 +1,6 @@
 package thiha.aung.boilerplate.core.config
 
-const val PICSUM_API = "https://picsum.photos/"
+const val PICSUM_V2_API = "https://picsum.photos/v2/"
 
 // often times, an app needs two apis
 // this is just a placeholder

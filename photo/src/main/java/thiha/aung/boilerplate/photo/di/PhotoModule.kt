@@ -3,7 +3,7 @@ package thiha.aung.boilerplate.photo.di
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import thiha.aung.boilerplate.core.data.remote.RetrofitClientFactory
-import thiha.aung.boilerplate.core.di.DI_PICSUM_API_FACTORY
+import thiha.aung.boilerplate.core.di.DI_PICSUM_V2_API_FACTORY
 import thiha.aung.boilerplate.photo.data.PhotoRepository
 import thiha.aung.boilerplate.photo.data.PhotoRepositoryImpl
 import thiha.aung.boilerplate.photo.data.local.LocalPhotoMapper
@@ -17,7 +17,7 @@ import thiha.aung.boilerplate.photo.domain.interactors.RefreshPhotosImpl
 val dataModule = module {
 
     single<PhotoApiService> {
-        get<RetrofitClientFactory>(named(DI_PICSUM_API_FACTORY)).build()
+        get<RetrofitClientFactory>(named(DI_PICSUM_V2_API_FACTORY)).build()
     }
 
     factory { RemotePhotoMapper() }
