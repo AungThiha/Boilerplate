@@ -15,6 +15,19 @@ Install _fastlane_ using
 or alternatively using `brew cask install fastlane`
 
 # Available Actions
+### buildDevelop
+```
+fastlane buildDevelop
+```
+
+### assemble_build
+```
+fastlane assemble_build
+```
+Assemble Build
+
+----
+
 ## Android
 ### android test
 ```
