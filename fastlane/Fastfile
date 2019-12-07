@@ -33,6 +33,7 @@ lane :distributeDev do
 
     # Distribute to firebase
     firebase_app_distribution(
+      # no security concern for having firebase app id in there. firebase cli requires login
       app: "1:137656115448:android:9a5c0c04101f6373c11b0d",
       apk_path: app_apk_path,
       groups: "Developers",
