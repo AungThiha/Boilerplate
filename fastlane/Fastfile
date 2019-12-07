@@ -15,22 +15,29 @@
 
 default_platform(:android)
 
-desc "Distribute Build"
-lane :distributeBuild do |options|
-    gradle(
-        task: "assemble",
-        flavor: options[:flavor],
-        build_type: "release"
-    )
+desc "Distribute Dev"
+lane :distributeDev do
+
+    # Unit Test
+    gradle(task: "testDevDebugUnitTest")
+
+    # Build apk
+    build_android_app(task: "app:assembleDevRelease")
+    app_apk_path = Actions.lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+
+    # TODO ui test
+
+    # create change log
     message = last_git_commit[:message]
     File.write("./changelog.txt", message)
-end
 
-desc "Run Unit Tests"
-lane :unit_tests do |options|
-  gradle(
-    task: "test",
-    flavor: options[:flavor],
-    build_type: "release"
-  )
+    # Distribute to firebase
+    firebase_app_distribution(
+      app: "1:137656115448:android:9a5c0c04101f6373c11b0d",
+      apk_path: app_apk_path,
+      groups: "Developers",
+      release_notes_file: "fastlane/changelog.txt",
+      firebase_cli_path: "/usr/local/bin/firebase"
+    )
+
 end

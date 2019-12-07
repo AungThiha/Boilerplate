@@ -15,35 +15,11 @@ Install _fastlane_ using
 or alternatively using `brew cask install fastlane`
 
 # Available Actions
-### buildDevelop
+### distributeDev
 ```
-fastlane buildDevelop
+fastlane distributeDev
 ```
-
-### assemble_build
-```
-fastlane assemble_build
-```
-Assemble Build
-
-----
-
-## Android
-### android test
-```
-fastlane android test
-```
-Runs all the tests
-### android beta
-```
-fastlane android beta
-```
-Submit a new Beta Build to Crashlytics Beta
-### android deploy
-```
-fastlane android deploy
-```
-Deploy a new version to the Google Play
+Distribute Dev
 
 ----
 
