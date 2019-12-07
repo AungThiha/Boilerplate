@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 apply from: '../base_dependencies.gradle'
 
 android {
@@ -107,3 +108,5 @@ dependencies {
     implementation project(path: ':core')
     implementation project(path: ':photo')
 }
+
+apply plugin: 'com.google.gms.google-services'
