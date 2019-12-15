@@ -3,7 +3,9 @@
     package="thiha.aung.boilerplate.photo">
 
     <application>
-        <activity android:name="thiha.aung.boilerplate.photo.presentation.PhotosActivity"></activity>
+        <activity android:name="thiha.aung.boilerplate.photo.presentation.PhotosActivity">
+
+        </activity>
     </application>
 
 </manifest>

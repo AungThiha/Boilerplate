@@ -1,5 +1,6 @@
 package thiha.aung.boilerplate.photo.di
 
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import thiha.aung.boilerplate.core.data.remote.RetrofitClientFactory
@@ -9,10 +10,8 @@ import thiha.aung.boilerplate.photo.data.PhotoRepositoryImpl
 import thiha.aung.boilerplate.photo.data.local.LocalPhotoMapper
 import thiha.aung.boilerplate.photo.data.remote.PhotoApiService
 import thiha.aung.boilerplate.photo.data.remote.RemotePhotoMapper
-import thiha.aung.boilerplate.photo.domain.interactors.GetPhotos
-import thiha.aung.boilerplate.photo.domain.interactors.GetPhotosImpl
-import thiha.aung.boilerplate.photo.domain.interactors.RefreshPhotos
-import thiha.aung.boilerplate.photo.domain.interactors.RefreshPhotosImpl
+import thiha.aung.boilerplate.photo.domain.interactors.*
+import thiha.aung.boilerplate.photo.presentation.PhotosViewModel
 
 val dataModule = module {
 
@@ -34,11 +33,13 @@ val domainModule = module {
 
     factory<RefreshPhotos> { RefreshPhotosImpl(get(), get(), get()) }
 
+    factory<PhotoInteractors> { PhotoInteractors(get(), get()) }
+
 }
 
 val presentationModule = module {
 
-//    viewModel { PhotoViewModel(get(), get()) }
+    viewModel { PhotosViewModel(interactors = get()) }
 
 }
 
