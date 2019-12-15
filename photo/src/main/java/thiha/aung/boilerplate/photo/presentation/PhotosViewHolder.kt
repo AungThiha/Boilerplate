@@ -10,7 +10,7 @@ import thiha.aung.boilerplate.photo.domain.entities.Photo
 
 class PhotosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-    fun onBind(photo: Photo) {
+    fun bind(photo: Photo) {
         Glide.with(itemView.context)
             .load(photo.url)
             .placeholder(R.drawable.placeholder)

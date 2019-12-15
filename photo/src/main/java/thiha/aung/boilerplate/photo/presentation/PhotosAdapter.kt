@@ -6,8 +6,7 @@ import thiha.aung.boilerplate.photo.R
 import thiha.aung.boilerplate.photo.domain.entities.Photo
 import kotlin.properties.Delegates
 
-class PhotosAdapter(
-) : RecyclerView.Adapter<PhotosViewHolder>()  {
+class PhotosAdapter : RecyclerView.Adapter<PhotosViewHolder>()  {
 
     var photoList: List<Photo> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
@@ -18,7 +17,7 @@ class PhotosAdapter(
     }
 
     override fun onBindViewHolder(holder: PhotosViewHolder, position: Int) {
-        holder.onBind(photoList[position])
+        holder.bind(photoList[position])
     }
 
     override fun getItemCount(): Int {
