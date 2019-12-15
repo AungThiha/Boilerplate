@@ -51,7 +51,7 @@ lane :distributeStagingFromLocal do
     # Unit Test
     gradle(task: "testStagingDebugUnitTest")
 
-    # Instrumentation Test
+    # Instrumentation Test in Local
     # https://medium.com/azimolabs/managing-android-virtual-devices-during-test-session-98a403acffc2
     # https://medium.com/pink-room-club/android-continuous-integration-using-fastlane-and-circleci-2-0-part-i-7204e2e7b8b
     automated_test_emulator_run(
