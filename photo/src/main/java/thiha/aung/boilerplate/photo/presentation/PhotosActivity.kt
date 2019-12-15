@@ -49,5 +49,7 @@ class PhotosActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
 
     override fun onRefresh() {
         viewModel.refreshPhotos()
+
+        swipeRefreshLayout.isRefreshing = false
     }
 }
