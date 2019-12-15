@@ -20,6 +20,11 @@ or alternatively using `brew cask install fastlane`
 fastlane distributeDev
 ```
 Distribute Dev
+### distributeStagingFromLocal
+```
+fastlane distributeStagingFromLocal
+```
+Distribute Staging From Local
 
 ----
 
