@@ -1,0 +1,83 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+
+default_platform(:android)
+
+
+desc "Distribute Dev"
+lane :distributeDev do
+
+    # Unit Test
+    gradle(task: "testDevDebugUnitTest")
+
+    # Build apk
+    build_android_app(task: "app:assembleDevRelease")
+    app_apk_path = Actions.lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+
+    # create change log
+    # TODO improve change log using sh
+    message = last_git_commit[:message]
+    File.write("./changelog.txt", message)
+
+    # Distribute to firebase
+    firebase_app_distribution(
+      # no security concern for having firebase app id in here. firebase cli requires login
+      app: "1:137656115448:android:9a5c0c04101f6373c11b0d",
+      apk_path: app_apk_path,
+      groups: "developers",
+      release_notes_file: "fastlane/changelog.txt",
+      firebase_cli_path: "/usr/local/bin/firebase"
+    )
+
+end
+
+
+desc "Distribute Staging From Local"
+lane :distributeStagingFromLocal do
+
+    # Unit Test
+    gradle(task: "testStagingDebugUnitTest")
+
+    # Instrumentation Test in Local
+    # https://medium.com/azimolabs/managing-android-virtual-devices-during-test-session-98a403acffc2
+    # https://medium.com/pink-room-club/android-continuous-integration-using-fastlane-and-circleci-2-0-part-i-7204e2e7b8b
+    automated_test_emulator_run(
+        AVD_setup_path: "fastlane/AVD_config.json",
+        AVD_recreate_new: false,
+        AVD_clean_after: false,
+        gradle_task: "connectedStagingDebugAndroidTest"
+    )
+
+    # Build apk
+    build_android_app(task: "app:assembleStagingRelease")
+    app_apk_path = Actions.lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+
+    # create change log
+    # TODO improve change log using sh
+    message = last_git_commit[:message]
+    File.write("./changelog.txt", message)
+
+    # Distribute to firebase
+    firebase_app_distribution(
+      # no security concern for having firebase app id in here. firebase cli requires login
+      app: "1:137656115448:android:b94700cce102873dc11b0d",
+      apk_path: app_apk_path,
+      groups: "developers",
+      release_notes_file: "fastlane/changelog.txt",
+      firebase_cli_path: "/usr/local/bin/firebase"
+    )
+
+end

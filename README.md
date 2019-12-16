@@ -28,4 +28,18 @@ prod.key.password=YourProdKeyPassword
 ```
 
 ## Base Urls
-Base Urls are defined inside `ApiConfigs.kt`. It's inside `core` module. Each flavor(of flavorDimension `env`) has its own `ApiConfigs.Kt` 
+Base Urls are defined inside `ApiConfigs.kt`. It's inside `core` module. Each flavor(of flavorDimension `env`) has its own `ApiConfigs.Kt`
+
+## Fastlane
+1. Install fastlane
+2. Install Firebase cli
+3. Change Firebase app ids, tester groups and firebase_cli_path in `/fastlane/Fastfile`. 
+```
+    firebase_app_distribution(
+      app: "YourAppIdFromFirebase",
+      apk_path: app_apk_path,
+      groups: "Group1, Group2, Group3",
+      release_notes_file: "fastlane/changelog.txt",
+      firebase_cli_path: "/absolute/path/to/firebase/cli/binary"
+    )
+```

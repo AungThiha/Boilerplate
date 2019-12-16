@@ -9,4 +9,10 @@
 /captures
 .externalNativeBuild
 .cxx
+
+
+playstore_key.json
+fastlane/report.xml
+fastlane/changelog.txt
 google-services.json
+AVD_config.json
