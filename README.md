@@ -9,14 +9,13 @@ All the modules have three flavors with flavorDimension `env`.
 
 # BuildTypes
 There are two build types. 
-1. Debug
-    It is used during the development for the authors of the code themselves 
-    so that any crashes during development won't go to Crashlytics. 
-    Any other configurations intended only for the authors of code should be added in there
-2. Release
-    It is used to distribute the apps, be it Firebase app distribution, play store or any other distribution media. 
-    Crashlytics is enabled for this build type. 
-    Any other configurations intended for QA, product managers,product owners or people from similar roles should be added in here
+1. *Debug:* is used during the development for the authors of the code themselves 
+so that any crashes during development won't go to Crashlytics. 
+Any other configurations intended only for the authors of code should be added in there.
+2. *Release* is used to distribute the apps, be it Firebase app distribution, 
+play store or any other distribution media. Crashlytics is enabled for this build type. 
+Any other configurations intended for QA, product managers, 
+product owners or people from similar roles should be added in here
 
 # Sign Keys
 Sign keys are stored inside `./keystores` folder and they are loaded from gradle using `keystore.properties`.
@@ -45,7 +44,7 @@ Base Urls are defined inside `ApiConfigs.kt`. It's inside `core` module. Each fl
 
 ### Setup fastlane
 
-1. Install fastlane
+1. Install fastlane .   
     Be careful with the ruby version. At the time of writing, fastlane requires at least `2.4.0`.    
     If you install fastlane before you have the minimum required ruby version, you can have some errors.
 2. Install Firebase cli
