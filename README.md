@@ -9,10 +9,10 @@ All the modules have three flavors with flavorDimension `env`.
 
 # BuildTypes
 There are two build types. 
-1. *Debug:* is used during the development for the authors of the code themselves 
+1. **Debug** is used during the development for the authors of the code themselves 
 so that any crashes during development won't go to Crashlytics. 
 Any other configurations intended only for the authors of code should be added in there.
-2. *Release* is used to distribute the apps, be it Firebase app distribution, 
+2. **Release** is used to distribute the apps, be it Firebase app distribution, 
 play store or any other distribution media. Crashlytics is enabled for this build type. 
 Any other configurations intended for QA, product managers, 
 product owners or people from similar roles should be added in here
