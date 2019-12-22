@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Run Unit Tests
+    name: Run DevDebug Unit Tests
     runs-on: ubuntu-18.04
 
     steps:
@@ -18,4 +18,4 @@ jobs:
         with:
           java-version: 1.8
       - name: Unit tests
-        run: bash ./gradlew testDevDebugUnitTest --stacktrace
+        run: bash ./gradlew testDevDebugUnitTest
