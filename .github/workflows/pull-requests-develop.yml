@@ -16,7 +16,7 @@ jobs:
       - name: Install gnupg
         run: brew install gnupg
       - name: Decrypt google-services.json
-        run: bash ./.github/scripts/decryptGoogleServicesJson.sh dev
+        run: ./.github/scripts/decryptGoogleServicesJson.sh dev
         env:
           GOOGLE_SERVICES_JSON_SECRET: $
       - name: set up JDK 1.8
@@ -24,4 +24,4 @@ jobs:
         with:
           java-version: 1.8
       - name: Unit tests
-        run: bash ./gradlew testDevDebugUnitTest
+        run: ./gradlew testDevDebugUnitTest
