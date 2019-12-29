@@ -9,12 +9,12 @@ on:
 jobs:
   test:
     name: Run DevDebug Unit Tests
-    runs-on: macos-latest
+    runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v1
-      - name: Install gnupg
-        run: brew install gnupg
+#      - name: Install gnupg
+#        run: brew install gnupg
       - name: Decrypt google-services.json
         run: ./.github/scripts/decryptGoogleServicesJson.sh dev
         env:
