@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install gnupg
-        run: brew install gnupg@2.2.19
+        run: brew install gnupg
       - name: Decrypt google-services.json
         run: bash ./.github/scripts/decryptGoogleServicesJson.sh dev
         env:
