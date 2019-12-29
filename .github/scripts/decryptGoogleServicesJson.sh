@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo $TEST_SECRET
+
 decrypt() {
 	# --batch to prevent interactive command --yes to assume "yes" for questions
 	# Add GOOGLE_SERVICE_JSON_SECRET value to github secret for github actions
