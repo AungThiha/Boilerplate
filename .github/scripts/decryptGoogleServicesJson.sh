@@ -5,7 +5,7 @@ decrypt() {
 	# Add GOOGLE_SERVICE_JSON_SECRET value to github secret for github actions
 	# On your local machine, add GOOGLE_SERVICE_JSON_SECRET as an env variable
 	gpg --quiet --batch --yes --decrypt \
-	--passphrase="$GOOGLE_SERVICE_JSON_SECRET" \
+	--passphrase="$GOOGLE_SERVICES_JSON_SECRET" \
 	--output "./app/src/$1/google-services.json" \
 	"./app/src/$1/google-services.json.gpg"
 }
