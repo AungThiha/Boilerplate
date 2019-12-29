@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     name: Run DevDebug Unit Tests
-    runs-on: macos-latest
+    runs-on: macos-10.14.6
 
     steps:
       - uses: actions/checkout@v1
