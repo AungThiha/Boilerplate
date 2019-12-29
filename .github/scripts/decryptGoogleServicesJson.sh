@@ -11,7 +11,7 @@ decrypt() {
 	"./app/src/$1/google-services.json.gpg"
 }
 
-if [[ "$#" -eq 1 ]]; then
+if [ "$#" -eq 1 ]; then
     decrypt $1
 else
 	decrypt "dev"
