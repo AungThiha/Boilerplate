@@ -11,7 +11,7 @@ decrypt() {
 	"./app/src/$1/google-services.json.gpg"
 }
 
-if [ "$#" -eq 1 ]; then
+if [ "$#" -eq 1 ]; then # double brackets do not work in ubuntu 18.04
     decrypt $1
 else
 	decrypt "dev"
