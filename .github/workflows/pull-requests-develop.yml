@@ -9,12 +9,10 @@ on:
 jobs:
   test:
     name: Run DevDebug Unit Tests
-    runs-on: macos-10.14.6
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v1
-      - name: Gpg version
-        run: gpg --version
       - name: Decrypt google-services.json
         run: bash ./.github/scripts/decryptGoogleServicesJson.sh dev
         env:
