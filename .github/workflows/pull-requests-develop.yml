@@ -45,7 +45,7 @@ jobs:
           GOOGLE_SERVICES_JSON_SECRET: ${{ secrets.GOOGLE_SERVICES_JSON_SECRET }}
 
       - name: Write keystore file and password to disk
-        run: ./.github/scripts/WriteKeystore.sh dev
+        run: ./.github/scripts/writeKeystore.sh dev
         env:
           KEYSTORE: ${{ secrets.DEV_KEYSTORE }}
           KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
