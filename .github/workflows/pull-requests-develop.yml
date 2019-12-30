@@ -7,26 +7,26 @@ on:
       - 'mater'
 
 jobs:
-
-  test:
-    name: Run DevDebug Unit Tests
-    runs-on: ubuntu-18.04
-
-    steps:
-      - uses: actions/checkout@v1
-
-      - name: Decrypt google-services.json
-        run: ./.github/scripts/decryptGoogleServicesJson.sh dev
-        env:
-          GOOGLE_SERVICES_JSON_SECRET: ${{ secrets.GOOGLE_SERVICES_JSON_SECRET }}
-
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-
-      - name: Unit tests
-        run: ./gradlew testDevDebugUnitTest
+#
+#  test:
+#    name: Run DevDebug Unit Tests
+#    runs-on: ubuntu-18.04
+#
+#    steps:
+#      - uses: actions/checkout@v1
+#
+#      - name: Decrypt google-services.json
+#        run: ./.github/scripts/decryptGoogleServicesJson.sh dev
+#        env:
+#          GOOGLE_SERVICES_JSON_SECRET: ${{ secrets.GOOGLE_SERVICES_JSON_SECRET }}
+#
+#      - name: set up JDK 1.8
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 1.8
+#
+#      - name: Unit tests
+#        run: ./gradlew testDevDebugUnitTest
 
   apk:
     name: Generate Apks
