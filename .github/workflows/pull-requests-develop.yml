@@ -45,10 +45,10 @@ jobs:
           GOOGLE_SERVICES_JSON_SECRET: ${{ secrets.GOOGLE_SERVICES_JSON_SECRET }}
 
       - name: Write keystore file and password to disk
-          run: ./.github/scripts/WriteKeystore.sh dev
-          env:
-            KEYSTORE: ${{ secrets.DEV_KEYSTORE }}
-            KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
+        run: ./.github/scripts/WriteKeystore.sh dev
+        env:
+          KEYSTORE: ${{ secrets.DEV_KEYSTORE }}
+          KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
 
       - name: Assemble app devDebug APK
         run: ./gradlew assembleDevDebug
@@ -62,7 +62,7 @@ jobs:
       - name: Assemble Android Instrumentation Tests
         run: ./gradlew assembleDevDebugAndroidTest
 
-      - name: Upload Android Test APK
+      - name: Upload devDebug Android Test APK
         uses: actions/upload-artifact@v1
         with:
           name: app-dev-debug-androidTest
