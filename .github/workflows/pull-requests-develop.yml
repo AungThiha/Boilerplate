@@ -53,13 +53,13 @@ jobs:
       - name: Assemble app devDebug APK
         run: ./gradlew assembleDevDebug
 
-      - name: Upload app APK
+      - name: Upload app devDebug APK
         uses: actions/upload-artifact@v1
         with:
           name: app-dev-debug
           path: app/build/outputs/apk/dev/debug/app-dev-debug.apk
 
-      - name: Assemble Android Instrumentation Tests
+      - name: Assemble devDebug Android Test APK
         run: ./gradlew assembleDevDebugAndroidTest
 
       - name: Upload devDebug Android Test APK
