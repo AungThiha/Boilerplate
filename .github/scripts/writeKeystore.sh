@@ -2,10 +2,12 @@
 
 echo "Writing keystore.properties"
 echo ${KEYSTORE_PROPERTIES} > keystore.properties
+mkdir keystores
 
 echo "Writting dev.keystore"
+input="DEV_KEYSTORE"
 output="dev.keystore"
-echo $DEV_KEYSTORE > ${output}
+echo "${!input}" > ${output}
 
 #writeKeystore() {
 #    echo "Writing $1.keystore"
