@@ -68,4 +68,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: app-dev-debug-androidTest
-          path: app/build/outputs/apk/androidTest/debug/app-dev-debug-androidTest.apk
+          path: app/build/outputs/apk/androidTest/dev/debug/app-dev-debug-androidTest.apk
