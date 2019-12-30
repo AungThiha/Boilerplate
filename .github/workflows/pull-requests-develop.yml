@@ -47,7 +47,7 @@ jobs:
       - name: Write keystore file and password to disk
         run: ./.github/scripts/writeKeystore.sh dev
         env:
-          KEYSTORE: ${{ secrets.DEV_KEYSTORE }}
+          DEV_KEYSTORE: ${{ secrets.DEV_KEYSTORE }}
           KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
 
       - name: Assemble app devDebug APK
