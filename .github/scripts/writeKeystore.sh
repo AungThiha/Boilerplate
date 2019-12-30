@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Writing keystore.properties"
 echo ${KEYSTORE_PROPERTIES} > keystore.properties
