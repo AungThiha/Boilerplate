@@ -7,19 +7,63 @@ on:
       - 'mater'
 
 jobs:
+
   test:
     name: Run DevDebug Unit Tests
     runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v1
+
       - name: Decrypt google-services.json
         run: ./.github/scripts/decryptGoogleServicesJson.sh dev
         env:
           GOOGLE_SERVICES_JSON_SECRET: ${{ secrets.GOOGLE_SERVICES_JSON_SECRET }}
+
       - name: set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+
       - name: Unit tests
         run: ./gradlew testDevDebugUnitTest
+
+  apk:
+    name: Generate Apks
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Create keystore password file
+        run: ./.github/scripts/decryptGoogleServicesJson.sh dev
+        env:
+          GOOGLE_SERVICES_JSON_SECRET: ${{ secrets.GOOGLE_SERVICES_JSON_SECRET }}
+
+      - name: Write keystore file and password to disk
+          run: ./.github/scripts/WriteKeystore.sh dev
+          env:
+            KEYSTORE: ${{ secrets.DEV_KEYSTORE }}
+            KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
+
+      - name: Assemble app devDebug APK
+        run: ./gradlew assembleDevDebug
+
+      - name: Upload app APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-dev-debug
+          path: app/build/outputs/apk/dev/debug/app-dev-debug.apk
+
+      - name: Assemble Android Instrumentation Tests
+        run: ./gradlew assembleDevDebugAndroidTest
+
+      - name: Upload Android Test APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-dev-debug-androidTest
+          path: app/build/outputs/apk/androidTest/debug/app-dev-debug-androidTest.apk
