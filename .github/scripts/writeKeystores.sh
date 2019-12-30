@@ -1,4 +1,5 @@
 #!/bin/bash
+IFS=
 
 echo "Write keystore.properties"
 echo ${KEYSTORE_PROPERTIES} > keystore.properties
