@@ -1,7 +1,7 @@
 #!/bin/sh
 
 decrypt() {
-    echo "Decrypting $1 google-services.json"
+    echo "Decrypt $1 google-services.json"
 	# --batch to prevent interactive command --yes to assume "yes" for questions
 	# Add GOOGLE_SERVICE_JSON_SECRET value to github secret for github actions
 	# On your local machine, add GOOGLE_SERVICE_JSON_SECRET as an env variable
