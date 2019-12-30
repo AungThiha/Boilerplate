@@ -12,11 +12,6 @@ writeKeystore() {
 }
 
 mkdir keystores
-
-if [ "$#" -eq 1 ]; then # double brackets do not work in ubuntu 18.04
-    writeKeystore $1
-else
-	writeKeystore "dev"
-	writeKeystore "staging"
-	writeKeystore "prod"
-fi
+writeKeystore "dev"
+writeKeystore "staging"
+writeKeystore "prod"

@@ -45,9 +45,11 @@ jobs:
           GOOGLE_SERVICES_JSON_SECRET: ${{ secrets.GOOGLE_SERVICES_JSON_SECRET }}
 
       - name: Write keystore file and password to disk
-        run: ./.github/scripts/writeKeystore.sh dev
+        run: ./.github/scripts/writeKeystores.sh
         env:
           DEV_KEYSTORE: ${{ secrets.DEV_KEYSTORE }}
+          STAGING_KEYSTORE: ${{ secrets.STAGING_KEYSTORE }}
+          PROD_KEYSTORE: ${{ secrets.PROD_KEYSTORE }}
           KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
 
       - name: Assemble app devDebug APK
