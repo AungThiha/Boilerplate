@@ -6,7 +6,8 @@ mkdir keystores
 
 echo "Writting dev.keystore"
 input="DEV_KEYSTORE"
-output="dev.keystore"
+filename="dev"
+output="./keystores/${filename}.keystore"
 echo "${!input}" > ${output}
 
 #writeKeystore() {
