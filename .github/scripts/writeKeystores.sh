@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Used to preserve line breaks.
+# Without this everything in keystore.properties will be in one line when it's written
 IFS=
 
 echo "Write keystore.properties"
