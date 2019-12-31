@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 decrypt() {
     echo "Decrypt $1 google-services.json"
@@ -11,7 +11,7 @@ decrypt() {
 	"./app/src/$1/google-services.json.gpg"
 }
 
-if [ "$#" -eq 1 ]; then # double brackets do not work in ubuntu 18.04
+if [[ "$#" -eq 1 ]]; then
     decrypt $1
 else
 	decrypt "dev"

@@ -17,7 +17,7 @@ writeKeystore() {
 
 mkdir keystores
 
-if [ "$#" -eq 1 ]; then # double brackets do not work in ubuntu 18.04
+if [[ "$#" -eq 1 ]]; then
     writeKeystore $1
 else
 	writeKeystore "dev"
