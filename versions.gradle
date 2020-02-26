@@ -6,7 +6,7 @@ ext.versions = [
         targetSdk        : 29,
 
         // gradle
-        buildGradle      : '3.5.2',
+        buildGradle      : '3.5.3',
 
         // Kotlin
         kotlin           : '1.3.61',
